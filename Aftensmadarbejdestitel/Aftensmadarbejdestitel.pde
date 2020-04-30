@@ -3,18 +3,21 @@ boolean Opskrifter = false;
 boolean Scan_varer = false;
 boolean Se_varer = false;
 
-String mad1, mad2, mad3, mad4;
+boolean mad1, mad2, mad3, mad4;
 
 void setup() {
   size(1280, 800);
   
-  mad1 = "Mel";
-  mad2 = "Mælk";
-  mad3 = "Smør";
-  mad4 = "Æg";
+  mad1 = true;   //mel
+  mad2 = false;  //mælk
+  mad3 = true;   //smør
+  mad4 = false;  //æg
 }
 
 void draw() {
+  
+  /*     DEL ET     */
+  /* LAYOUT OG MENU */
     
   background(0);
   
@@ -209,5 +212,13 @@ void draw() {
     }
     
   }
+
+  /*   DEL  TO   */
+  /* INDSCANNING */
+  
+  ///////////////
+  // KAPITEL V //
+  // SE  VARER //
+  ///////////////
 
 }
