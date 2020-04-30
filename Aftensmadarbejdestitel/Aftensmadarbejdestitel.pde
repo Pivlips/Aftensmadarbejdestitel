@@ -5,6 +5,15 @@ boolean Se_varer = false;
 
 boolean mad1, mad2, mad3, mad4;
 
+import processing.serial.*;
+// Variable Definitions //
+Serial myPort;                    //Lav Serial objekt
+String dataWemos = "Intet endnu"; //Lav String til at gemme serial data
+String kortNum = "Intet endnu";   //Lav String til at gemme status fra serial data
+int kortNumTid = 0;
+String name1, name2;
+
+
 void setup() {
   size(1280, 800);
   
@@ -12,6 +21,13 @@ void setup() {
   mad2 = false;  //mælk
   mad3 = true;   //smør
   mad4 = false;  //æg
+  
+  //arduino kode// :)
+   String portName = Serial.list() [1]; //Ofte er det 0, men på mac er det ofte 1
+  println("Prøver: " + portName);
+  myPort = new Serial(this, portName, 115200);
+  
+  
 }
 
 void draw() {
