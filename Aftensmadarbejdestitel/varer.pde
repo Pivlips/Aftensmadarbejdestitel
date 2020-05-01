@@ -1,0 +1,8 @@
+class varer {
+  
+  void display() {
+    
+    
+  }
+  
+}
