@@ -7,6 +7,8 @@ boolean mad1, mad2, mad3, mad4;
 
 int antalOpskrifter = 0;
 
+int opskiftsider1 = 1;
+
 PImage opskrift1;
 
 void setup() {
@@ -232,7 +234,7 @@ void draw() {
   
   /////////////////
   // KAPITEL  VI //
-  //   LAV MAD   //
+  // SE OPSKIRFT //
   /////////////////
 
   if (mad1==true && mad2==true && mad3==true && mad4==true) {
@@ -260,9 +262,136 @@ void draw() {
     //Billede
     image(opskrift1, 842, 230);
     
+    //Knap
+    fill(0, 100, 0); //farve på knap
+    rect (955,673,291,87);
+    fill(255); //farve på tekst
+    textSize(50);
+    text("Næste", 1027, 737);
+    
+    /////////////////////
+    //   KAPITEL VII   //
+    // FØLG VEJLEDNING //
+    /////////////////////
+    
+    if (opskiftsider1 == 1) {
+    //SIDE ET
+    fill(0); //farve på tekst
+    textSize(40);
+    //første kolonne
+    text("300g mel", 135, 432);
+    text("9 dl mælk", 135, 482);
+    text("100g smør", 135, 532);
+    text("6 æg", 135, 582);
+    //anden kolonne
+    text("1 tsk salt", 440, 432);
+    
+    //NAVIGERING
+    if((mouseY<(673+87))&&(mouseY>(673))){
+      if((mouseX<(955+291))&&(mouseX>(955))){
+        if (mousePressed){
+          opskiftsider1 = 2;
+          delay(1200);
+        }
+      }
+    }
+  }
+  
+  if (opskiftsider1 == 2) {
+    //SIDE TO
+    fill(0); //farve på tekst
+    textSize(50);
+    text("Kom melet (300g) i en skål og pisk mælken", 135, 442);
+    text("(9 dl) i lidt efter lidt til en “klumpfri” jævning", 135, 502);
+    
+    //NAVIGERING
+    if((mouseY<(673+87))&&(mouseY>(673))){
+      if((mouseX<(955+291))&&(mouseX>(955))){
+        if (mousePressed){
+          opskiftsider1 = 3;
+        }
+      }
+    }
+    
+  }
+  
+  if (opskiftsider1 == 3) {
+    //SIDE TRE
+    fill(0); //farve på tekst
+    textSize(50);
+    text("Smelt (100g) smørret i en stegepande", 135, 442);
+    text("og kom det i blandingen", 135, 502);
+    
+    //NAVIGERING
+    if((mouseY<(673+87))&&(mouseY>(673))){
+      if((mouseX<(955+291))&&(mouseX>(955))){
+        if (mousePressed){
+          opskiftsider1 = 4;
+        }
+      }
+    }
+  }
+  
+  if (opskiftsider1 == 4) {
+    //SIDE FIRE
+    fill(0); //farve på tekst
+    textSize(50);
+    text("Tilsæt æg (6 stk) og salt (1 tsk), pisk dejen", 135, 442);
+    text("godt igennem og lad den hvile i ca. ½ time.", 135, 502);
+    
+    //NAVIGERING
+    if((mouseY<(673+87))&&(mouseY>(673))){
+      if((mouseX<(955+291))&&(mouseX>(955))){
+        if (mousePressed){
+          opskiftsider1 = 5;
+        }
+      }
+    }
+    
+  }
+  
+  if (opskiftsider1 == 5) {
+    //SIDE FEM
+    fill(0); //farve på tekst
+    textSize(50);
+    text("Bag en pandekage ad gangen (½-¾ dl dej pr.", 135, 442);
+    text("pandekage) ved kraftig varme, ca. 1 min. på", 135, 502);
+    text("hver side, eller til de er gyldne.", 135, 562);
+    
+    //NAVIGERING
+    if((mouseY<(673+87))&&(mouseY>(673))){
+      if((mouseX<(955+291))&&(mouseX>(955))){
+        if (mousePressed){
+          opskiftsider1 = 6;
+        }
+      }
+    }
+
+  }
+  
+  if (opskiftsider1 == 6) {
+    //SIDE SEKS
+    fill(0); //farve på tekst
+    textSize(50);
+    text("Hold pandekagerne varme under alufolie og ", 135, 442);
+    text("gentag med resten af dejen", 135, 502);
+    
+    //NAVIGERING
+    if((mouseY<(673+87))&&(mouseY>(673))){
+      if((mouseX<(955+291))&&(mouseX>(955))){
+        if (mousePressed){
+          opskiftsider1 = 7;
+        }
+      }
+    }
+  }
+  
+  if (opskiftsider1 == 7) {
+    //SIDE SYV
+    fill(0); //farve på tekst
+    textSize(75);
+    text("Tillykke, du er færdig", 135, 467);
   }
     
-    
-    
-  
+}
 }
