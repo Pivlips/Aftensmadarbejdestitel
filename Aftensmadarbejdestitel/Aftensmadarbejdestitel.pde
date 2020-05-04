@@ -221,15 +221,153 @@ void draw() {
       }
     }
     
+    /*   DEL  TO   */
+    /* INDSCANNING */
+    
+    ///////////////
+    // KAPITEL V //
+    //  EN VARE  //
+    ///////////////
+    
+    //MEL
+    if (mad1==true && mad2==false && mad3==false && mad4==false){
+      textSize(30);
+      fill(0);
+      text("Mel", 83, 243);
+    }
+    
+    //MÆLK
+    if (mad1==false && mad2==true && mad3==false && mad4==false){
+      textSize(30);
+      fill(0);
+      text("Mælk", 83, 243);
+    }
+    
+     //SMØR
+    if (mad1==false && mad2==false && mad3==true && mad4==false){
+      textSize(30);
+      fill(0);
+      text("Smør", 83, 243);
+    }
+    
+     //ÆG
+    if (mad1==false && mad2==false && mad3==false && mad4==true){
+      textSize(30);
+      fill(0);
+      text("Æg", 83, 243);
+    }
+    
+    ////////////////
+    // KAPITEL VI //
+    //  TO VARER  //
+    ////////////////
+    
+    //MEL OG MÆLK
+    if (mad1==true && mad2==true && mad3==false && mad4==false){
+      textSize(30);
+      fill(0);
+      text("Mel", 83, 243);
+      text("Mælk", 83, 318);
+    }
+    
+    //MEL OG SMØR
+    if (mad1==true && mad2==false && mad3==true && mad4==false){
+      textSize(30);
+      fill(0);
+      text("Mel", 83, 243);
+      text("Smør", 83, 318);
+    }
+    
+    //MEL OG ÆG
+    if (mad1==true && mad2==false && mad3==false && mad4==true){
+      textSize(30);
+      fill(0);
+      text("Mel", 83, 243);
+      text("Æg", 83, 318);
+    }
+    
+    //MÆLK OG SMØR
+    if (mad1==false && mad2==true && mad3==true && mad4==false){
+      textSize(30);
+      fill(0);
+      text("Mælk", 83, 243);
+      text("Smør", 83, 318);
+    }
+    
+    //MÆLK OG ÆG
+    if (mad1==false && mad2==true && mad3==false && mad4==true){
+      textSize(30);
+      fill(0);
+      text("Mælk", 83, 243);
+      text("Æg", 83, 318);
+    }
+    
+    //SMØR OG ÆG
+    if (mad1==false && mad2==false && mad3==true && mad4==true){
+      textSize(30);
+      fill(0);
+      text("Smør", 83, 243);
+      text("Æg", 83, 318);
+    }
+    
+    /////////////////
+    // KAPITEL VII //
+    //  TRE VARER  //
+    /////////////////
+    
+    //MEL, MÆLK OG SMØR
+    if (mad1==true && mad2==true && mad3==true && mad4==false){
+      textSize(30);
+      fill(0);
+      text("Mel", 83, 243);
+      text("Mælk", 83, 318);
+      text("Smør", 83, 394);
+    }
+    
+    //MEL, MÆLK OG ÆG
+    if (mad1==true && mad2==true && mad3==false && mad4==true){
+      textSize(30);
+      fill(0);
+      text("Mel", 83, 243);
+      text("Mælk", 83, 318);
+      text("Æg", 83, 394);
+    }
+    
+    //MEL, SMØR OG ÆG
+    if (mad1==true && mad2==false && mad3==true && mad4==true){
+      textSize(30);
+      fill(0);
+      text("Mel", 83, 243);
+      text("Smør", 83, 318);
+      text("Æg", 83, 394);
+    }
+    
+    //MÆLK, SMØR OG ÆG
+    if (mad1==false && mad2==true && mad3==true && mad4==true){
+      textSize(30);
+      fill(0);
+      text("Mælk", 83, 243);
+      text("Smør", 83, 318);
+      text("Æg", 83, 394);
+    }
+    
+    //////////////////
+    // KAPITEL VIII //
+    //  FIRE VARER  //
+    //////////////////
+    
+    //MEL, MÆLK, SMØR OG ÆG
+    if (mad1==true && mad2==true && mad3==true && mad4==true){
+      textSize(30);
+      fill(0);
+      text("Mel", 83, 243);
+      text("Mælk", 83, 318);
+      text("Smør", 83, 394);
+      text("Æg", 83, 470);
+    }
+    
   }
-
-  /*   DEL  TO   */
-  /* INDSCANNING */
-  
-  ///////////////
-  // KAPITEL V //
-  // SE  VARER //
-  ///////////////
+   
   
   /*  DEL  TRE  */
   /* OPSKRIFTER */
@@ -267,6 +405,7 @@ void draw() {
     //Indhold
     fill(0); //farve på tekst
     textSize(40);
+    
     //første kolonne
     text("300g mel", 135, 432);
     text("9 dl mælk", 135, 482);
