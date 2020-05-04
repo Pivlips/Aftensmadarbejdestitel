@@ -1,23 +1,31 @@
+varer v;
+
 boolean Forside = true;
 boolean Opskrifter = false;
 boolean Scan_varer = false;
 boolean Se_varer = false;
 
-boolean mad1, mad2, mad3, mad4;
+//boolean mad1, mad2, mad3, mad4;
 
-int antalOpskrifter = 0;
+int antalMad = 0;
+int []varer={1,2,3,4};
+int nyvare = 0;
 
-PImage opskrift1;
+//String []vare="mel";
 
 void setup() {
   size(1280, 800);
   
-  mad1 = true;   //mel
-  mad2 = true;  //mælk
-  mad3 = true;   //smør
-  mad4 = true;  //æg
+//  mad1 = true;   //mel
+  //mad2 = false;  //mælk
+  //mad3 = true;   //smør
+  //mad4 = false;  //æg
   
-  opskrift1 = loadImage("pandekage_billede.jpg");
+//  v.display();
+
+
+
+  nyvare = (int) random (4);
 }
 
 void draw() {
@@ -31,6 +39,10 @@ void draw() {
   // KAPITEL I //
   //  FORSIDE  //
   ///////////////
+  
+ // if (mad1 == true) {
+ //   antalMad = antalMad +  1;
+ // }
   
   if (Forside == true) {
   
@@ -198,6 +210,26 @@ void draw() {
     rect (852,193,1,455);
     rect (1026,193,1,455);
     
+   
+    if (nyvare == 1){
+      fill(0,255,0);
+      text("mel",100, 100);
+    }
+    
+     if (nyvare == 2){
+       fill(0,255,0);
+      text("mælk",100, 100);
+    }
+    
+    if (nyvare == 3){
+      fill(0,255,0);
+      text("smør",100, 100);
+    }
+    
+     if (nyvare == 4){
+       fill(0,255,0);
+      text("æg",100, 100);
+    }
     
       //KNAPPER
         //tilbage
@@ -221,48 +253,12 @@ void draw() {
 
   /*   DEL  TO   */
   /* INDSCANNING */
-  
+    
   ///////////////
   // KAPITEL V //
   // SE  VARER //
   ///////////////
   
-  /*  DEL  TRE  */
-  /* OPSKRIFTER */
   
-  /////////////////
-  // KAPITEL  VI //
-  //   LAV MAD   //
-  /////////////////
-
-  if (mad1==true && mad2==true && mad3==true && mad4==true) {
-    antalOpskrifter = 1;
-  } else {
-    antalOpskrifter = 0;
-  }
-  
-  if (Opskrifter == true && antalOpskrifter == 1) {
-    //Boks
-    fill(255); //farve på boks
-    rect (125,230,1030,405); //boks
-    
-    //Overskrift på opskrift
-    textSize(40);
-    fill(57, 142, 67);
-    text("Pandekager", 135, 280);
-    
-    //Underskift på opskrift
-    textSize(30);
-    fill(77);
-    text("4 personer", 135, 320);
-    text("20 minutter", 135, 355);
-    
-    //Billede
-    image(opskrift1, 842, 230);
-    
-  }
-    
-    
-    
   
 }
