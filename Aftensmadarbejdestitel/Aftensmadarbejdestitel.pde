@@ -1,19 +1,29 @@
+///////////////
+// KAPITEL I //
+// OPSÆTNING //
+///////////////
+
+  //MENU
 boolean Forside = true;
 boolean Opskrifter = false;
 boolean Scan_varer = false;
 boolean Se_varer = false;
 
+  //VARER
 boolean mad1, mad2, mad3, mad4;
 
+  //FARVER
+color sort = color (0)
+
+  //OPSKRIFTER
 int antalOpskrifter = 0;
-
 int opskiftsider1 = 1;
-
 PImage opskrift1;
 
 boolean slet = false;
 
-//////// RFID KODE ///////////
+  //RFID Kode
+
 import processing.serial.*;
 
 Serial myPort;                    //Lav Serial objekt
@@ -49,7 +59,7 @@ void setup() {
 
   opskrift1 = loadImage("pandekage_billede.jpg");
 
-  ///// RFID Kode /////
+    // RFID Kode
   timeLastAdd = millis();
   String portName = Serial.list() [1];
   println("Prøver: " + portName);
@@ -57,13 +67,9 @@ void setup() {
 }
 
 void draw() {
+  background(sort);
 
-  /*     DEL ET     */
-  /* LAYOUT OG MENU */
-
-  background(0);
-
-  /// RFID Kode ///
+    // RFID Kode
   if (myPort.available() > 0)  //Er data parat?
   {
     dataWemos = myPort.readStringUntil('\n');  //Læs data og gem det
@@ -78,12 +84,13 @@ void draw() {
     }
   }
 
+  /*     DEL ET     */
+  /* LAYOUT OG MENU */
 
-
-  ///////////////
-  // KAPITEL I //
-  //  FORSIDE  //
-  ///////////////
+  /////////////////
+  // KAPITEL  II //
+  //   FORSIDE   //
+  /////////////////
 
   if (Forside == true) {
 
@@ -139,10 +146,10 @@ void draw() {
     }
   }
 
-  ////////////////
-  // KAPITEL II //
-  // OPSKRIFTER //
-  ////////////////
+  //////////////////
+  // KAPITEL  III //
+  //  OPSKRIFTER  //
+  //////////////////
 
   if (Opskrifter == true) {
     //TITEL
@@ -175,10 +182,10 @@ void draw() {
     }
   }
 
-  /////////////////
-  // KAPITEL III //
-  // SCAN  VARER //
-  /////////////////
+  ////////////////
+  // KAPITEL IV //
+  // SCAN VARER //
+  ////////////////
 
   if (Scan_varer == true) {
 
@@ -225,7 +232,7 @@ void draw() {
   }
 
   ////////////////
-  // KAPITEL IV //
+  // KAPITEL  V //
   //  SE VARER  //
   ////////////////
 
@@ -285,13 +292,10 @@ void draw() {
       }
     }
 
-    /*   DEL  TO   */
-    /* INDSCANNING */
-
-    ///////////////
-    // KAPITEL V //
-    //  EN VARE  //
-    ///////////////
+    /////////////////
+    // KAPITEL  VI //
+    // INDSCANNING //
+    /////////////////
 
     if (varer.hasValue(maelk)) {
       mad2 = true;
@@ -310,10 +314,7 @@ void draw() {
     }
 
 
-
-
-
-    /// RFID Tags 1 ///
+    //RFID Tags 1
 
     if (int(kortNum) == 1) {
       klik = true;
@@ -364,22 +365,18 @@ void draw() {
     textSize(32);
     fill(255);
     text(gem, 83, 220);
-    /// RFID Tags 2 ///
+    
+    //RFID Tags 2
 
 
 
     kortNum = "101";
   }
 
-
-  /*  DEL  TRE  */
-  /* OPSKRIFTER */
-
   /////////////////
-  // KAPITEL  VI //
+  // KAPITEL VII //
   // SE OPSKIRFT //
   /////////////////
-
 
 
   if (Opskrifter == true && antalOpskrifter == 1) {
@@ -413,7 +410,7 @@ void draw() {
     //anden kolonne
     text("1 tsk salt", 440, 432);
 
-    //Knap - næste
+    //Knap - Næste
     if (opskiftsider1 <= 6) {
       fill(0, 100, 0); //farve på knap
       rect (955, 673, 291, 87);
@@ -432,7 +429,7 @@ void draw() {
     }
 
     /////////////////////
-    //   KAPITEL VII   //
+    //  KAPITEL  VIII  //
     // FØLG VEJLEDNING //
     /////////////////////
 
@@ -498,6 +495,32 @@ void draw() {
   }
 }
 
+void mouseReleased () { 
+  if (Opskrifter == true && antalOpskrifter == 1) {
+    if (opskiftsider1 <= 6) {
+      if ((mouseY<(673+87))&&(mouseY>(673))) {
+        if ((mouseX<(955+291))&&(mouseX>(955))) {
+          opskiftsider1 = opskiftsider1 + 1;
+        }
+      }
+    }
+  }
+  if (Opskrifter == true && antalOpskrifter == 1) {
+    if (opskiftsider1 >= 2) {
+      if ((mouseY<(673+87))&&(mouseY>(673))) {
+        if ((mouseX<(614+291))&&(mouseX>(614))) {
+          opskiftsider1 = opskiftsider1 - 1;
+        }
+      }
+    }
+  }
+}
+
+////////////////
+// KAPITEL IX //
+// FJERN VARE //
+////////////////
+
 void keyPressed () {
   if (key == 'a') {
     if (varer.hasValue("Mel")) {
@@ -561,28 +584,6 @@ void keyPressed () {
       println(varer);
       for (j = 0; j < varer.size(); j++) {
         gem = gem + varer.get(j)+"\n"+"\n";
-      }
-    }
-  }
-}
-
-
-void mouseReleased () { 
-  if (Opskrifter == true && antalOpskrifter == 1) {
-    if (opskiftsider1 <= 6) {
-      if ((mouseY<(673+87))&&(mouseY>(673))) {
-        if ((mouseX<(955+291))&&(mouseX>(955))) {
-          opskiftsider1 = opskiftsider1 + 1;
-        }
-      }
-    }
-  }
-  if (Opskrifter == true && antalOpskrifter == 1) {
-    if (opskiftsider1 >= 2) {
-      if ((mouseY<(673+87))&&(mouseY>(673))) {
-        if ((mouseX<(614+291))&&(mouseX>(614))) {
-          opskiftsider1 = opskiftsider1 - 1;
-        }
       }
     }
   }
