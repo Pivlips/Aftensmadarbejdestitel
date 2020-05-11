@@ -12,14 +12,15 @@ int opskiftsider1 = 1;
 PImage opskrift1;
 
 void setup() {
+  //fullScreen();
   size(1280, 800);
   
   noStroke();
   
-  mad1 = true;   //mel
-  mad2 = true;  //mælk
-  mad3 = true;   //smør
-  mad4 = true;  //æg
+  mad1 = true; //mel
+  mad2 = true; //mælk
+  mad3 = true; //smør
+  mad4 = true; //æg
   
   opskrift1 = loadImage("pandekage_billede.jpg");
 }
@@ -121,6 +122,8 @@ void draw() {
         if (mousePressed){
           Opskrifter = false;
           Forside = true;
+          opskiftsider1 = 1;
+          
         }
       }
     }
@@ -176,7 +179,7 @@ void draw() {
     text("Se varer", 444, 148);
     
       //TEKSTFELT
-        //felt højre
+        //felt venstre 
     fill(191); //farve på felt
     rect (80,193,521,454);
     
@@ -189,7 +192,7 @@ void draw() {
     rect (253,193,1,455);
     rect (427,193,1,455);
     
-        //felt venstre
+        //felt højre
     fill(191); //farve på felt
     rect (679,193,521,454);
     
@@ -373,7 +376,7 @@ void draw() {
   /* OPSKRIFTER */
   
   /////////////////
-  // KAPITEL  VI //
+  // KAPITEL  IX //
   // SE OPSKIRFT //
   /////////////////
 
@@ -414,15 +417,29 @@ void draw() {
     //anden kolonne
     text("1 tsk salt", 440, 432);
     
-    //Knap
+    //Knap - Næste
+    if (opskiftsider1 <= 6) {
     fill(0, 100, 0); //farve på knap
     rect (955,673,291,87);
     fill(255); //farve på tekst
     textSize(50);
     text("Næste", 1027, 737);
+    }
+    
+    //Knap - Forrige
+    if (opskiftsider1 >= 2) {
+      fill(113, 77, 28); //farve på knap
+      rect (614,673,291,87);
+      fill(255); //farve på tekst
+      textSize(50);
+      text("Forrige", 681, 737);
+    }
+      
+    
+    
     
     /////////////////////
-    //   KAPITEL VII   //
+    //    KAPITEL X    //
     // FØLG VEJLEDNING //
     /////////////////////
     
@@ -489,14 +506,26 @@ void draw() {
 }
 }
 
+
 void mouseReleased () { 
   if (Opskrifter == true && antalOpskrifter == 1) {
-    if((mouseY<(673+87))&&(mouseY>(673))){
-      if((mouseX<(955+291))&&(mouseX>(955))){
-        opskiftsider1 = opskiftsider1 + 1;
+    if (opskiftsider1 <= 6) {
+      if((mouseY<(673+87))&&(mouseY>(673))){
+        if((mouseX<(955+291))&&(mouseX>(955))){
+          opskiftsider1 = opskiftsider1 + 1;
+        }
       }
     }
   }
   
+  if (Opskrifter == true && antalOpskrifter == 1) {
+    if (opskiftsider1 >= 2) {
+      if((mouseY<(673+87))&&(mouseY>(673))){
+        if((mouseX<(614+291))&&(mouseX>(614))){
+          opskiftsider1 = opskiftsider1 - 1;
+        }
+      }
+    }
+  }
 }
   
