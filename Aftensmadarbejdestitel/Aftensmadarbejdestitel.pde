@@ -11,6 +11,8 @@ int opskiftsider1 = 1;
 
 PImage opskrift1;
 
+boolean slet = false;
+
 //////// RFID KODE ///////////
 import processing.serial.*;
 
@@ -65,13 +67,13 @@ void draw() {
   if (myPort.available() > 0)  //Er data parat?
   {
     dataWemos = myPort.readStringUntil('\n');  //Læs data og gem det
-    println("Received: " + dataWemos);
+    //println("Received: " + dataWemos);
     if (dataWemos != null) {
       if (dataWemos.charAt(10) == '#') {       //Fundet en godkendt tag
-        println("test");
+      // println("test");
         kortNum = dataWemos.substring(11, dataWemos.length()-2); //Out of bounds? Prøv højere tal end -3!
         kortNumTid = (millis()+5000);
-        println(kortNum);
+        //println(kortNum);
       }
     }
   }
@@ -179,6 +181,7 @@ void draw() {
 
   if (Scan_varer == true) {
 
+    gem = "";
     //TITEL
     textSize(100);
     fill(255);
@@ -224,6 +227,7 @@ void draw() {
   // KAPITEL IV //
   //  SE VARER  //
   ////////////////
+
 
   if (Se_varer == true) {
 
@@ -310,12 +314,6 @@ void draw() {
 
     /// RFID Tags 1 ///
 
-    if (varer.hasValue(maelk) && int(kortNum) == 1) {
-      varer.remove(1);
-      mad2 = false;
-  }
-
-
     if (int(kortNum) == 1) {
       klik = true;
       tal = 0;
@@ -365,6 +363,9 @@ void draw() {
     textSize(32);
     fill(255);
     text(gem, 83, 220);
+    /// RFID Tags 2 ///
+
+
 
     kortNum = "101";
   }
@@ -484,6 +485,72 @@ void draw() {
     }
   }
 }
+
+void keyPressed () {
+  if (key == 'a') {
+    if (varer.hasValue("Mel")) {
+      gem = "";
+      println(varer);
+      for (int m = 0; m < varer.size(); m++) {
+        if (varer.get(m) == "Mel") {
+          varer.remove(m);
+        }
+      }
+      println(varer);
+      for (j = 0; j < varer.size(); j++) {
+        gem = gem + varer.get(j)+"\n"+"\n";
+      }
+    }
+  }
+   if (key == 'b') {
+    if (varer.hasValue("Smør")) {
+      gem = "";
+      println(varer);
+      for (int m = 0; m < varer.size(); m++) {
+        if (varer.get(m) == "Smør") {
+          varer.remove(m);
+        }
+      }
+      println(varer);
+      for (j = 0; j < varer.size(); j++) {
+        gem = gem + varer.get(j)+"\n"+"\n";
+      }
+    }
+  }
+  
+   if (key == 'c') {
+    if (varer.hasValue("Mælk")) {
+      gem = "";
+      println(varer);
+      for (int m = 0; m < varer.size(); m++) {
+        if (varer.get(m) == "Mælk") {
+          varer.remove(m);
+        }
+      }
+      println(varer);
+      for (j = 0; j < varer.size(); j++) {
+        gem = gem + varer.get(j)+"\n"+"\n";
+      }
+    }
+  }
+   if (key == 'd') {
+    if (varer.hasValue("Æg")) {
+      gem = "";
+      println(varer);
+      for (int m = 0; m < varer.size(); m++) {
+        if (varer.get(m) == "Æg") {
+          varer.remove(m);
+        }
+      }
+      println(varer);
+      for (j = 0; j < varer.size(); j++) {
+        gem = gem + varer.get(j)+"\n"+"\n";
+      }
+    }
+  }
+  
+}
+
 
 void mouseReleased () { 
   if (Opskrifter == true && antalOpskrifter == 1) {
