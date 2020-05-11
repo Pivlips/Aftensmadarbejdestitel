@@ -70,7 +70,7 @@ void draw() {
     //println("Received: " + dataWemos);
     if (dataWemos != null) {
       if (dataWemos.charAt(10) == '#') {       //Fundet en godkendt tag
-      // println("test");
+        // println("test");
         kortNum = dataWemos.substring(11, dataWemos.length()-2); //Out of bounds? Prøv højere tal end -3!
         kortNumTid = (millis()+5000);
         //println(kortNum);
@@ -169,6 +169,7 @@ void draw() {
         if (mousePressed) {
           Opskrifter = false;
           Forside = true;
+          opskiftsider1 =1;
         }
       }
     }
@@ -412,12 +413,23 @@ void draw() {
     //anden kolonne
     text("1 tsk salt", 440, 432);
 
-    //Knap
-    fill(0, 100, 0); //farve på knap
-    rect (955, 673, 291, 87);
-    fill(255); //farve på tekst
-    textSize(50);
-    text("Næste", 1027, 737);
+    //Knap - næste
+    if (opskiftsider1 <= 6) {
+      fill(0, 100, 0); //farve på knap
+      rect (955, 673, 291, 87);
+      fill(255); //farve på tekst
+      textSize(50);
+      text("Næste", 1027, 737);
+    }
+
+    //Knap - Forrige
+    if (opskiftsider1 >= 2) {
+      fill(113, 77, 28); //farve på knap
+      rect (614, 673, 291, 87);
+      fill(255); //farve på tekst
+      textSize(50);
+      text("Forrige", 681, 737);
+    }
 
     /////////////////////
     //   KAPITEL VII   //
@@ -494,6 +506,7 @@ void keyPressed () {
       for (int m = 0; m < varer.size(); m++) {
         if (varer.get(m) == "Mel") {
           varer.remove(m);
+          mad1 = false;
         }
       }
       println(varer);
@@ -502,13 +515,14 @@ void keyPressed () {
       }
     }
   }
-   if (key == 'b') {
+  if (key == 'b') {
     if (varer.hasValue("Smør")) {
       gem = "";
       println(varer);
       for (int m = 0; m < varer.size(); m++) {
         if (varer.get(m) == "Smør") {
           varer.remove(m);
+          mad3 = false;
         }
       }
       println(varer);
@@ -517,14 +531,15 @@ void keyPressed () {
       }
     }
   }
-  
-   if (key == 'c') {
+
+  if (key == 'c') {
     if (varer.hasValue("Mælk")) {
       gem = "";
       println(varer);
       for (int m = 0; m < varer.size(); m++) {
         if (varer.get(m) == "Mælk") {
           varer.remove(m);
+          mad2 = false;
         }
       }
       println(varer);
@@ -533,13 +548,14 @@ void keyPressed () {
       }
     }
   }
-   if (key == 'd') {
+  if (key == 'd') {
     if (varer.hasValue("Æg")) {
       gem = "";
       println(varer);
       for (int m = 0; m < varer.size(); m++) {
         if (varer.get(m) == "Æg") {
           varer.remove(m);
+          mad4 = false;
         }
       }
       println(varer);
@@ -548,15 +564,25 @@ void keyPressed () {
       }
     }
   }
-  
 }
 
 
 void mouseReleased () { 
   if (Opskrifter == true && antalOpskrifter == 1) {
-    if ((mouseY<(673+87))&&(mouseY>(673))) {
-      if ((mouseX<(955+291))&&(mouseX>(955))) {
-        opskiftsider1 = opskiftsider1 + 1;
+    if (opskiftsider1 <= 6) {
+      if ((mouseY<(673+87))&&(mouseY>(673))) {
+        if ((mouseX<(955+291))&&(mouseX>(955))) {
+          opskiftsider1 = opskiftsider1 + 1;
+        }
+      }
+    }
+  }
+  if (Opskrifter == true && antalOpskrifter == 1) {
+    if (opskiftsider1 >= 2) {
+      if ((mouseY<(673+87))&&(mouseY>(673))) {
+        if ((mouseX<(614+291))&&(mouseX>(614))) {
+          opskiftsider1 = opskiftsider1 - 1;
+        }
       }
     }
   }
