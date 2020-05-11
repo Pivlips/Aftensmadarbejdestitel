@@ -13,7 +13,8 @@ boolean Se_varer = false;
 boolean mad1, mad2, mad3, mad4;
 
   //FARVER
-color sort = color (0)
+color sort = color (0);
+color hvid = color (255);
 
   //OPSKRIFTER
 int antalOpskrifter = 0;
@@ -95,7 +96,7 @@ void draw() {
   if (Forside == true) {
 
     //OPSKRIFTER
-    fill(255);
+    fill(hvid);
     rect (334, 152, 613, 99);
     //tekst
     textSize(50);
@@ -103,14 +104,14 @@ void draw() {
     text("Opskrifter", 530, 222);
 
     //SCAN VARER
-    fill(255);
+    fill(hvid);
     rect (334, 351, 613, 99);
     //tekst
     fill(112);
     text("Scan varer", 521, 421);
 
     //SE VARER
-    fill(255);
+    fill(hvid);
     rect (334, 550, 613, 99);
     //tekst
     fill(112);
@@ -154,7 +155,7 @@ void draw() {
   if (Opskrifter == true) {
     //TITEL
     textSize(100);
-    fill(255);
+    fill(hvid);
     text("Opskrifter", 420, 148);
 
     //INDHOLD
@@ -166,7 +167,7 @@ void draw() {
     //tilbage
     fill(100, 0, 0); //farve på knap
     rect (41, 673, 291, 87);
-    fill(255); //farve på tekst
+    fill(hvid); //farve på tekst
     textSize(50);
     text("Tilbage", 105, 737);
 
@@ -192,7 +193,7 @@ void draw() {
     gem = "";
     //TITEL
     textSize(100);
-    fill(255);
+    fill(hvid);
     text("Scan en varer", 332, 148);
 
     //TEKSTFELT
@@ -203,7 +204,7 @@ void draw() {
     //tilbage
     fill(100, 0, 0); //farve på knap
     rect (41, 673, 291, 87);
-    fill(255); //farve på tekst
+    fill(hvid); //farve på tekst
     textSize(50);
     text("Annuller", 96, 737);
 
@@ -243,7 +244,7 @@ void draw() {
     if (mad3 == true) {
 
       textSize(100);
-      fill(255);
+      fill(hvid);
       text("Se varer", 444, 148);
     }
     //TEKSTFELT
@@ -251,7 +252,7 @@ void draw() {
     fill(191); //farve på felt
     rect (80, 193, 521, 454);
 
-    fill(0); //farve på streger
+    fill(sort); //farve på streger
     rect (80, 268, 521, 1);
     rect (80, 343, 521, 1);
     rect (80, 419, 521, 1);
@@ -264,7 +265,7 @@ void draw() {
     fill(191); //farve på felt
     rect (679, 193, 521, 454);
 
-    fill(0); //farve på streger
+    fill(sort); //farve på streger
     rect (679, 268, 521, 1);
     rect (679, 343, 521, 1);
     rect (679, 419, 521, 1);
@@ -278,7 +279,7 @@ void draw() {
     //tilbage
     fill(100, 0, 0); //farve på knap
     rect (41, 673, 291, 87);
-    fill(255); //farve på tekst
+    fill(hvid); //farve på tekst
     textSize(50);
     text("Tilbage", 105, 737);
 
@@ -363,7 +364,7 @@ void draw() {
       j = j + 1;
     }
     textSize(32);
-    fill(255);
+    fill(hvid);
     text(gem, 83, 220);
     
     //RFID Tags 2
@@ -381,7 +382,7 @@ void draw() {
 
   if (Opskrifter == true && antalOpskrifter == 1) {
     //Boks
-    fill(255); //farve på boks
+    fill(hvid); //farve på boks
     rect (125, 230, 1030, 405); //boks
 
     //Overskrift på opskrift
@@ -399,7 +400,7 @@ void draw() {
     image(opskrift1, 842, 230);
 
     //Indhold
-    fill(0); //farve på tekst
+    fill(sort); //farve på tekst
     textSize(40);
 
     //første kolonne
@@ -414,7 +415,7 @@ void draw() {
     if (opskiftsider1 <= 6) {
       fill(0, 100, 0); //farve på knap
       rect (955, 673, 291, 87);
-      fill(255); //farve på tekst
+      fill(hvid); //farve på tekst
       textSize(50);
       text("Næste", 1027, 737);
     }
@@ -423,7 +424,7 @@ void draw() {
     if (opskiftsider1 >= 2) {
       fill(113, 77, 28); //farve på knap
       rect (614, 673, 291, 87);
-      fill(255); //farve på tekst
+      fill(hvid); //farve på tekst
       textSize(50);
       text("Forrige", 681, 737);
     }
@@ -435,9 +436,9 @@ void draw() {
 
     if (opskiftsider1 == 2) {
       //SIDE TO
-      fill(255);
+      fill(hvid);
       rect (125, 372, 1030, 263);
-      fill(0); //farve på tekst
+      fill(sort); //farve på tekst
       textSize(50);
       text("Kom melet (300g) i en skål og pisk mælken", 135, 442);
       text("(9 dl) i lidt efter lidt til en “klumpfri” jævning", 135, 502);
@@ -445,9 +446,9 @@ void draw() {
 
     if (opskiftsider1 == 3) {
       //SIDE TRE
-      fill(255);
+      fill(hvid);
       rect (125, 372, 1030, 263);
-      fill(0); //farve på tekst
+      fill(sort); //farve på tekst
       textSize(50);
       text("Smelt (100g) smørret i en stegepande", 135, 442);
       text("og kom det i blandingen", 135, 502);
@@ -455,9 +456,9 @@ void draw() {
 
     if (opskiftsider1 == 4) {
       //SIDE FIRE
-      fill(255);
+      fill(hvid);
       rect (125, 372, 1030, 263);
-      fill(0); //farve på tekst
+      fill(sort); //farve på tekst
       textSize(50);
       text("Tilsæt æg (6 stk) og salt (1 tsk), pisk dejen", 135, 442);
       text("godt igennem og lad den hvile i ca. ½ time.", 135, 502);
@@ -465,9 +466,9 @@ void draw() {
 
     if (opskiftsider1 == 5) {
       //SIDE FEM
-      fill(255);
+      fill(hvid);
       rect (125, 372, 1030, 263);
-      fill(0); //farve på tekst
+      fill(sort); //farve på tekst
       textSize(50);
       text("Bag en pandekage ad gangen (½-¾ dl dej pr.", 135, 442);
       text("pandekage) ved kraftig varme, ca. 1 min. på", 135, 502);
@@ -476,9 +477,9 @@ void draw() {
 
     if (opskiftsider1 == 6) {
       //SIDE SEKS
-      fill(255);
+      fill(hvid);
       rect (125, 372, 1030, 263);
-      fill(0); //farve på tekst
+      fill(sort); //farve på tekst
       textSize(50);
       text("Hold pandekagerne varme under alufolie og ", 135, 442);
       text("gentag med resten af dejen", 135, 502);
@@ -486,9 +487,9 @@ void draw() {
 
     if (opskiftsider1 >= 7) {
       //SIDE SYV
-      fill(255);
+      fill(hvid);
       rect (125, 372, 1030, 263);
-      fill(0); //farve på tekst
+      fill(sort); //farve på tekst
       textSize(75);
       text("Tillykke, du er færdig", 135, 467);
     }
